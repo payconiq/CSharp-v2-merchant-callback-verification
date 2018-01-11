@@ -1,0 +1,14 @@
+stages:
+  - remote
+
+image: registry.acc.payconiq.io/debian-payconiq:0.0.14
+
+job1:
+  stage: remote
+  script:
+    - git remote add gitlab "https://$username:$password@github.com/payconiq/CSharp-merchant-callback-verification.git"
+    - git push -u gitlab master
+  only:
+    - master
+  tags:
+    - docker
